@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+    <info>
+    <name>WF_Desafio_WebForm</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <created_user>dias.fulvio&#x40;gmail.com</created_user>
+    <created_date>2023&#x2f;09&#x2f;25 20&#x3a;31&#x3a;16.613</created_date>
+    <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
+    <modified_date>2023&#x2f;09&#x2f;25 21&#x3a;45&#x3a;53.404</modified_date>
+    <fileHash>19c5aeff2d2e0027fd6d53dc9e119224</fileHash>
+    <stepEntryHash>5d7a967b27102a78fef87e3cc2cfa785</stepEntryHash>
+
+    <directory>&#x2f;</directory>
+    <parameters>
+      <parameter>
+        <name>pName</name>
+        <description>pName</description>
+        <type>String</type>
+        <uiControlType>TextBox</uiControlType>
+        <list_of_values/>
+        <valueSeparator/>
+        <default_value>Nome 1</default_value>
+        <secret>N</secret>
+        <optional>N</optional>
+        <runtime>N</runtime>
+      </parameter>
+      <parameter>
+        <name>pSex</name>
+        <description>pSex</description>
+        <type>String</type>
+        <uiControlType>TextBox</uiControlType>
+        <list_of_values/>
+        <valueSeparator/>
+        <default_value>M</default_value>
+        <secret>N</secret>
+        <optional>N</optional>
+        <runtime>N</runtime>
+      </parameter>
+      <parameter>
+        <name>pCreated</name>
+        <description>pCreated</description>
+        <type>String</type>
+        <uiControlType>TextBox</uiControlType>
+        <list_of_values/>
+        <valueSeparator/>
+        <default_value>25&#x2f;09&#x2f;2012</default_value>
+        <secret>N</secret>
+        <optional>N</optional>
+        <runtime>N</runtime>
+      </parameter>
+    </parameters>
+    <parameterConfiguration>
+      <grouping>
+      </grouping>
+    </parameterConfiguration>
+    <ps_variables>
+    </ps_variables>
+    <logging_table>
+    </logging_table>
+    <size_rowset>10000</size_rowset>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <order>
+    <hop>
+      <from>Start Browser</from>
+      <to>Get Variables</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Get Variables</from>
+      <to>WebWaitUntilName</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>WebWaitUntilName</from>
+      <to>Web Set Value</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web Set Value</from>
+      <to>Web DropDown Selection</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web DropDown Selection</from>
+      <to>Web Click</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web Click</from>
+      <to>WebWaitUntilLink</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>WebWaitUntilLink</from>
+      <to>Web Click 2</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web Click 2</from>
+      <to>Web Wait Until 3</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web Wait Until 3</from>
+      <to>Web Table</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web Table</from>
+      <to>Exit Browser</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+  </order>
+  <step>
+    <name>Exit Browser</name>
+    <type>EndStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <driverName>BROWSER1</driverName>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Get Variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>pCreated</name>
+        <variable>&#x24;&#x7b;pCreated&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+      </field>
+      <field>
+        <name>pName</name>
+        <variable>&#x24;&#x7b;pName&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+      </field>
+      <field>
+        <name>pSex</name>
+        <variable>&#x24;&#x7b;pSex&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Start Browser</name>
+    <type>BeginStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <browser>Google Chrome</browser>
+      <ignoreIeProtectedModeSettings>N</ignoreIeProtectedModeSettings>
+      <url>https&#x3a;&#x2f;&#x2f;localhost&#x3a;7159&#x2f;People&#x2f;Create</url>
+      <delay>0</delay>
+      <maximize>Y</maximize>
+      <startNode>Y</startNode>
+      <notif>Y</notif>
+      <driverName>BROWSER1</driverName>
+      <pageLoadTime>10000</pageLoadTime>
+      <retryCount>0</retryCount>
+      <defaultDownloadDirectory/>
+      <clearBrowser>Y</clearBrowser>
+      <ieMode>N</ieMode>
+      <profile/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Web Click</name>
+    <type>ClickStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <clickoptions>NormalClick</clickoptions>
+      <value>BtnCreate</value>
+      <multiple>N</multiple>
+      <index>0</index>
+      <driverName>BROWSER1</driverName>
+      <numberOfClicks>1</numberOfClicks>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Web Click 2</name>
+    <type>ClickStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <clickoptions>NormalClick</clickoptions>
+      <value>linktobacklist</value>
+      <multiple>N</multiple>
+      <index>0</index>
+      <driverName>BROWSER1</driverName>
+      <numberOfClicks>1</numberOfClicks>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Web DropDown Selection</name>
+    <type>DropDownSelectionStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <value>Sex</value>
+      <multiple>N</multiple>
+      <index>0</index>
+      <driverName>BROWSER1</driverName>
+      <selectionCriteria>Value</selectionCriteria>
+      <selectionValue>pSex</selectionValue>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Web Set Value</name>
+    <type>SetTextStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <driverName>BROWSER1</driverName>
+      <setTextFields>        <field>          <criteria>Id</criteria>
+          <value>Name</value>
+          <multiple>No</multiple>
+          <index/>
+          <text>pName</text>
+          <clearText>Yes</clearText>
+    <criteriaAttributes>
+    </criteriaAttributes>
+        </field>        <field>          <criteria>Id</criteria>
+          <value>Created</value>
+          <multiple>No</multiple>
+          <index/>
+          <text>pCreated</text>
+          <clearText>Yes</clearText>
+    <criteriaAttributes>
+    </criteriaAttributes>
+        </field>      </setTextFields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Web Table</name>
+    <type>LoopTableStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <value>tbpeoples</value>
+      <extractFrom>Entire Table With Specific Columns</extractFrom>
+      <output/>
+      <multiple>N</multiple>
+      <index>0</index>
+      <driverName>BROWSER1</driverName>
+      <swiftMode>Y</swiftMode>
+      <tableLoopFields>        <field>          <column>0</column>
+          <outputFiield>Id</outputFiield>
+        </field>        <field>          <column>1</column>
+          <outputFiield>Name</outputFiield>
+        </field>        <field>          <column>2</column>
+          <outputFiield>Created</outputFiield>
+        </field>        <field>          <column>3</column>
+          <outputFiield>Sex</outputFiield>
+        </field>      </tableLoopFields>    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>WebWaitUntilName</name>
+    <type>WaitUntil</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <value>Name</value>
+      <driverName>BROWSER1</driverName>
+      <delay>10000</delay>
+      <expectedCondition>Element visible</expectedCondition>
+      <additionalValue/>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>WebWaitUntilLink</name>
+    <type>WaitUntil</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <value>linktobacklist</value>
+      <driverName>BROWSER1</driverName>
+      <delay>10000</delay>
+      <expectedCondition>Element visible</expectedCondition>
+      <additionalValue/>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Web Wait Until 3</name>
+    <type>WaitUntil</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>Id</criteria>
+      <value>tbpeoples</value>
+      <driverName>BROWSER1</driverName>
+      <delay>10000</delay>
+      <expectedCondition>Element present</expectedCondition>
+      <additionalValue/>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_workflow>N</slave_workflow>
+  <groups>
+  </groups>
+  <notepads>
+  </notepads>
+</transformation>
