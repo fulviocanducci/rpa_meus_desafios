@@ -9,9 +9,9 @@
     <created_user>dias.fulvio&#x40;gmail.com</created_user>
     <created_date>2023&#x2f;10&#x2f;01 17&#x3a;00&#x3a;54.577</created_date>
     <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
-    <modified_date>2023&#x2f;10&#x2f;01 23&#x3a;18&#x3a;25.935</modified_date>
-    <fileHash>7cce11a87a40f680a64c6093a671956b</fileHash>
-    <stepEntryHash>ab26de0903499d15edce012eb48ca364</stepEntryHash>
+    <modified_date>2023&#x2f;10&#x2f;02 14&#x3a;37&#x3a;04.434</modified_date>
+    <fileHash>369b49902f4dfbce11cfe391917a6f96</fileHash>
+    <stepEntryHash>a7303566a97668fed45cb2f3ba27ac5f</stepEntryHash>
 
     <directory>&#x2f;</directory>
     <parameters>
@@ -171,12 +171,6 @@
       <visible>Y</visible>
     </hop>
     <hop>
-      <from>Web Table</from>
-      <to>MemoryGroupby_EstadoCivil</to>
-      <enabled>Y</enabled>
-      <visible>Y</visible>
-    </hop>
-    <hop>
       <from>MemoryGroupby_EstadoCivil</from>
       <to>Filter rows</to>
       <enabled>Y</enabled>
@@ -195,12 +189,6 @@
       <visible>Y</visible>
     </hop>
     <hop>
-      <from>Web Table</from>
-      <to>Exit Browser</to>
-      <enabled>Y</enabled>
-      <visible>Y</visible>
-    </hop>
-    <hop>
       <from>Filter rows</from>
       <to>Sort rows</to>
       <enabled>Y</enabled>
@@ -212,7 +200,61 @@
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
+    <hop>
+      <from>Web Table</from>
+      <to>BlockingStep_ExitBroswer</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>BlockingStep_ExitBroswer</from>
+      <to>Exit Browser</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Web Table</from>
+      <to>Formula</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Formula</from>
+      <to>MemoryGroupby_EstadoCivil</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
   </order>
+  <step>
+    <name>Blocking Step</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <pass_all_rows>N</pass_all_rows>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
   <step>
     <name>BlockingStepSeparados</name>
     <type>BlockingStep</type>
@@ -359,6 +401,67 @@
     <GUI>
       <xloc>576</xloc>
       <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Exit Browser</name>
+    <type>EndStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <driverName>BROWSER1</driverName>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>Sort rows</send_true_to>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>Total</leftvalue>
+ <function>&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -599,6 +702,120 @@
     </step>
 
   <step>
+    <name>Mail</name>
+    <type>Mail</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+            <connectiontimeout/>
+      <timeout/>
+      <writetimeout/>
+      <TLSv1_0>N</TLSv1_0>
+      <TLSv1_1>N</TLSv1_1>
+      <TLSv1_2>N</TLSv1_2>
+      <TLSv1_3>N</TLSv1_3>
+      <server>mail.s2milhas.com.br</server>
+      <port>587</port>
+      <destination>fulviocanducci&#x40;hotmail.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyToAddresses/>
+      <replyto>sistema&#x40;s2milhas.com.br</replyto>
+      <replytoname>Sistema</replytoname>
+      <subject>Group By Estado Civil</subject>
+      <include_date>Y</include_date>
+      <include_subfolders>N</include_subfolders>
+      <zipFilenameDynamic>N</zipFilenameDynamic>
+      <isFilenameDynamic>N</isFilenameDynamic>
+      <attachContentFromField>N</attachContentFromField>
+      <attachContentField/>
+      <attachContentFileNameField/>
+      <dynamicFieldname/>
+      <dynamicWildcard/>
+      <dynamicZipFilename/>
+      <sourcefilefoldername>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;group-by-estado-civil.xlsx</sourcefilefoldername>
+      <sourcewildcard/>
+      <contact_person/>
+      <contact_phone/>
+      <comment>Group By Estado Civil</comment>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <zip_limit_size>0</zip_limit_size>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user>sistema&#x40;s2milhas.com.br</auth_user>
+      <accept_text_var_value>Y</accept_text_var_value>
+      <auth_password>Encrypted 2be98afc86ad4c089a215a671cdc2ff90</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>Y</use_HTML>
+      <use_Priority>Y</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>SSL</secureconnectiontype>
+      <embeddedimages>
+      </embeddedimages>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>MemoryGroupby_EstadoCivil</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>EstadoCivilGroup</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>Total</aggregate>
+          <subject>EstadoCivilGroup</subject>
+          <type>COUNT_ALL</type>
+          <valuefield/>
+        </field>
+      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>MicrosoftExcelWriter_Casados</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
@@ -634,7 +851,7 @@
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -871,7 +1088,7 @@
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -1073,6 +1290,99 @@
     </step>
 
   <step>
+    <name>MicrosoftExcelWriter_GroupByEstadoCivil</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <ignoreFormulaEvalError>N</ignoreFormulaEvalError>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+      <filePassword>Encrypted </filePassword>
+    <file>
+      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;group-by-estado-civil</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Agrupamento</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>Y</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+      <fileCreatedUsingTemplate>N</fileCreatedUsingTemplate>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>EstadoCivilGroup</name>
+        <type>String</type>
+        <format>&#x23;</format>
+        <title>Estado Civil</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Total</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <title>Total</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1024</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>MicrosoftExcelWriter_Separados</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
@@ -1108,7 +1418,7 @@
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -1345,7 +1655,7 @@
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -1582,7 +1892,7 @@
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -1600,6 +1910,174 @@
       <hidden>N</hidden>
     </template>
     <fields>
+      <field>
+        <name>Nome</name>
+        <type>String</type>
+        <format/>
+        <title>Nome</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>EstadoCivil</name>
+        <type>String</type>
+        <format/>
+        <title>EstadoCivil</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Nascimento</name>
+        <type>String</type>
+        <format/>
+        <title>Nascimento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Sexo</name>
+        <type>String</type>
+        <format/>
+        <title>Sexo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Telefone</name>
+        <type>String</type>
+        <format/>
+        <title>Telefone</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CEP</name>
+        <type>String</type>
+        <format/>
+        <title>CEP</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Endereco</name>
+        <type>String</type>
+        <format/>
+        <title>Endereco</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Numero</name>
+        <type>String</type>
+        <format/>
+        <title>Numero</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Complemento</name>
+        <type>String</type>
+        <format/>
+        <title>Complemento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Bairro</name>
+        <type>String</type>
+        <format/>
+        <title>Bairro</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Cidade</name>
+        <type>String</type>
+        <format/>
+        <title>Cidade</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Estado</name>
+        <type>String</type>
+        <format/>
+        <title>Estado</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Pais</name>
+        <type>String</type>
+        <format/>
+        <title>Pais</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Email</name>
+        <type>String</type>
+        <format/>
+        <title>Email</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -2021,6 +2499,48 @@
     </step>
 
   <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>Y</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>EstadoCivilGroup</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>Y</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>Start Browser</name>
     <type>BeginStep</type>
     <description/>
@@ -2156,249 +2676,7 @@
     </step>
 
   <step>
-    <name>MicrosoftExcelWriter_GroupByEstadoCivil</name>
-    <type>TypeExitExcelWriterStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <makeSheetActive>Y</makeSheetActive>
-    <rowWritingMethod>overwrite</rowWritingMethod>
-    <startingCell>A1</startingCell>
-    <appendOmitHeader>N</appendOmitHeader>
-    <appendOffset>0</appendOffset>
-    <appendEmpty>0</appendEmpty>
-    <rowWritingMethod>overwrite</rowWritingMethod>
-    <forceFormulaRecalculation>N</forceFormulaRecalculation>
-    <ignoreFormulaEvalError>N</ignoreFormulaEvalError>
-    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
-    <appendLines>N</appendLines>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-      <filePassword>Encrypted </filePassword>
-    <file>
-      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;group-by-estado-civil</name>
-      <extention>xlsx</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <stream_data>N</stream_data>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <protected_by/>
-      <splitevery>0</splitevery>
-      <if_file_exists>new</if_file_exists>
-      <if_sheet_exists>new</if_sheet_exists>
-      <fileCreatedUsingTemplate>N</fileCreatedUsingTemplate>
-      </file>
-    <template>
-      <enabled>N</enabled>
-      <sheet_enabled>N</sheet_enabled>
-      <filename>template.xls</filename>
-      <sheetname/>
-      <hidden>N</hidden>
-    </template>
-    <fields>
-      <field>
-        <name>EstadoCivil</name>
-        <type>String</type>
-        <format/>
-        <title>EstadoCivil</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Total</name>
-        <type>Integer</type>
-        <format/>
-        <title>Total</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-<send_true_to>Sort rows</send_true_to>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>Total</leftvalue>
- <function>&#x3e;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>MemoryGroupby_EstadoCivil</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>EstadoCivil</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>Total</aggregate>
-          <subject>EstadoCivil</subject>
-          <type>COUNT_ALL</type>
-          <valuefield/>
-        </field>
-      </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>416</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Mail</name>
-    <type>Mail</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-            <connectiontimeout/>
-      <timeout/>
-      <writetimeout/>
-      <TLSv1_0>N</TLSv1_0>
-      <TLSv1_1>N</TLSv1_1>
-      <TLSv1_2>N</TLSv1_2>
-      <TLSv1_3>N</TLSv1_3>
-      <server>mail.s2milhas.com.br</server>
-      <port>587</port>
-      <destination>fulviocanducci&#x40;hotmail.com</destination>
-      <destinationCc/>
-      <destinationBCc/>
-      <replyToAddresses/>
-      <replyto>sistema&#x40;s2milhas.com.br</replyto>
-      <replytoname>Sistema</replytoname>
-      <subject>Group By Estado Civil</subject>
-      <include_date>Y</include_date>
-      <include_subfolders>N</include_subfolders>
-      <zipFilenameDynamic>N</zipFilenameDynamic>
-      <isFilenameDynamic>N</isFilenameDynamic>
-      <attachContentFromField>N</attachContentFromField>
-      <attachContentField/>
-      <attachContentFileNameField/>
-      <dynamicFieldname/>
-      <dynamicWildcard/>
-      <dynamicZipFilename/>
-      <sourcefilefoldername>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;group-by-estado-civil.xlsx</sourcefilefoldername>
-      <sourcewildcard/>
-      <contact_person/>
-      <contact_phone/>
-      <comment>Group By Estado Civil</comment>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name/>
-      <zip_limit_size>0</zip_limit_size>
-      <use_auth>Y</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user>sistema&#x40;s2milhas.com.br</auth_user>
-      <accept_text_var_value>Y</accept_text_var_value>
-      <auth_password>Encrypted 2be98afc86ad4c089a215a671cdc2ff90</auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>Y</use_HTML>
-      <use_Priority>Y</use_Priority>
-    <encoding>UTF-8</encoding>
-    <priority>normal</priority>
-    <importance>normal</importance>
-    <sensitivity>normal</sensitivity>
-    <secureconnectiontype>SSL</secureconnectiontype>
-      <embeddedimages>
-      </embeddedimages>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1168</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Blocking Step</name>
+    <name>BlockingStep_ExitBroswer</name>
     <type>BlockingStep</type>
     <description/>
     <distribute>Y</distribute>
@@ -2421,32 +2699,6 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Exit Browser</name>
-    <type>EndStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <driverName>BROWSER1</driverName>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
       <xloc>256</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
@@ -2454,8 +2706,8 @@
     </step>
 
   <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
+    <name>Formula</name>
+    <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2464,23 +2716,13 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>Y</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>EstadoCivil</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>Y</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
+       <formula><field_name>EstadoCivilGroup</field_name>
+<formula_string>IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Casado&#x22;&#x29;&#x3b;&#x22;Casado&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Casada&#x22;&#x29;&#x3b;&#x22;Casado&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Divorciado&#x22;&#x29;&#x3b;&#x22;Divorciado&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Divorciada&#x22;&#x29;&#x3b;&#x22;Divorciado&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Separado&#x22;&#x29;&#x3b;&#x22;Separado&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Separada&#x22;&#x29;&#x3b;&#x22;Separado&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Solteiro&#x22;&#x29;&#x3b;&#x22;Solteiro&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Solteira&#x22;&#x29;&#x3b;&#x22;Solteiro&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Vi&#xfa;vo&#x22;&#x29;&#x3b;&#x22;Vi&#xfa;vo&#x22;&#x3b;IF &#x28;EXACT&#x28;&#x5b;EstadoCivil&#x5d;&#x3b; &#x22;Vi&#xfa;va&#x22;&#x29;&#x3b;&#x22;Vi&#xfa;vo&#x22;&#x3b;&#x22;&#x22;&#x29;&#x29;&#x29;&#x29;&#x29;&#x29;&#x29;&#x29;&#x29;&#x29;</formula_string>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<replace_field/>
+</formula>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2489,7 +2731,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
+      <xloc>416</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
