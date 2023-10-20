@@ -9,9 +9,9 @@
     <created_user>dias.fulvio&#x40;gmail.com</created_user>
     <created_date>2023&#x2f;10&#x2f;19 15&#x3a;06&#x3a;01.481</created_date>
     <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
-    <modified_date>2023&#x2f;10&#x2f;19 15&#x3a;31&#x3a;21.627</modified_date>
-    <fileHash>17aeadc67c741103830686fd102b2015</fileHash>
-    <stepEntryHash>231cdb63be5794a23cebd91d2ce47212</stepEntryHash>
+    <modified_date>2023&#x2f;10&#x2f;19 22&#x3a;32&#x3a;21.637</modified_date>
+    <fileHash>490dddbc171a3b6bf3e319401045bf3f</fileHash>
+    <stepEntryHash>e4ca3cc08cc4567485ea155e81171724</stepEntryHash>
 
     <directory>&#x2f;</directory>
     <parameters>
@@ -22,7 +22,7 @@
         <uiControlType>TextBox</uiControlType>
         <list_of_values/>
         <valueSeparator/>
-        <default_value>Mesa de escrit&#xf3;rio em MDF</default_value>
+        <default_value/>
         <secret>N</secret>
         <optional>N</optional>
         <runtime>N</runtime>
@@ -34,7 +34,7 @@
         <uiControlType>TextBox</uiControlType>
         <list_of_values/>
         <valueSeparator/>
-        <default_value>Mobly</default_value>
+        <default_value/>
         <secret>N</secret>
         <optional>N</optional>
         <runtime>N</runtime>
@@ -46,7 +46,7 @@
         <uiControlType>TextBox</uiControlType>
         <list_of_values/>
         <valueSeparator/>
-        <default_value>https&#x3a;&#x2f;&#x2f;www.mobly.com.br&#x2f;mesa-de-escritorio-anah-freijo-e-preta-903762.html</default_value>
+        <default_value/>
         <secret>N</secret>
         <optional>N</optional>
         <runtime>N</runtime>
@@ -58,7 +58,7 @@
         <uiControlType>TextBox</uiControlType>
         <list_of_values/>
         <valueSeparator/>
-        <default_value>&#x2f;&#x2f;&#x2a;&#x5b;&#x40;id&#x3d;&#x22;product-info&#x22;&#x5d;&#x2f;div&#x2f;section&#x5b;2&#x5d;&#x2f;div&#x5b;2&#x5d;&#x2f;div&#x5b;1&#x5d;&#x2f;h1</default_value>
+        <default_value/>
         <secret>N</secret>
         <optional>N</optional>
         <runtime>N</runtime>
@@ -70,7 +70,7 @@
         <uiControlType>TextBox</uiControlType>
         <list_of_values/>
         <valueSeparator/>
-        <default_value>&#x2f;&#x2f;&#x2a;&#x5b;&#x40;id&#x3d;&#x22;product-info&#x22;&#x5d;&#x2f;div&#x2f;section&#x5b;2&#x5d;&#x2f;div&#x5b;2&#x5d;&#x2f;div&#x5b;2&#x5d;&#x2f;div&#x2f;div&#x5b;3&#x5d;&#x2f;div&#x5b;1&#x5d;&#x2f;div&#x5b;2&#x5d;&#x2f;div&#x5b;1&#x5d;&#x2f;span&#x5b;3&#x5d;&#x2f;span&#x5b;2&#x5d;</default_value>
+        <default_value/>
         <secret>N</secret>
         <optional>N</optional>
         <runtime>N</runtime>
@@ -106,7 +106,7 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <order>
@@ -124,30 +124,12 @@
     </hop>
     <hop>
       <from>WaitXPathValue</from>
-      <to>GetValues</to>
+      <to>GetValue</to>
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
     <hop>
-      <from>WaitXPathTitle</from>
-      <to>WaitXPathValue</to>
-      <enabled>Y</enabled>
-      <visible>Y</visible>
-    </hop>
-    <hop>
-      <from>Block this step until steps finish</from>
-      <to>Generate Rows</to>
-      <enabled>Y</enabled>
-      <visible>Y</visible>
-    </hop>
-    <hop>
-      <from>Generate Rows</from>
-      <to>Get Variables</to>
-      <enabled>Y</enabled>
-      <visible>Y</visible>
-    </hop>
-    <hop>
-      <from>GetValues</from>
+      <from>GetValue</from>
       <to>MJSVCreated</to>
       <enabled>Y</enabled>
       <visible>Y</visible>
@@ -158,10 +140,58 @@
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
+    <hop>
+      <from>WaitXPathTitle</from>
+      <to>GetTitle</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>MJSVValue</from>
+      <to>MJSVCreated</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>GetTitle</from>
+      <to>WaitXPathValue</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>WaitXPathValue</from>
+      <to>MJSVValue</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>WaitXPathTitle</from>
+      <to>MJSVItem</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>MJSVItem</from>
+      <to>WaitXPathValue</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Navigation</from>
+      <to>Modified Java Script Value</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Modified Java Script Value</from>
+      <to>MJSVCreated</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
   </order>
   <step>
-    <name>Navigation</name>
-    <type>UrlNavigationStep</type>
+    <name>CopyRows</name>
+    <type>RowsToResult</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -170,9 +200,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-      <url>pAddress</url>
-      <delay>5000</delay>
-      <driverName>BROWSER1</driverName>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -181,86 +208,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>WaitXPathTitle</name>
-    <type>WaitUntil</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <criteria>X-Path</criteria>
-      <value>pXpathTitle</value>
-      <driverName>BROWSER1</driverName>
-      <delay>5000</delay>
-      <expectedCondition>Element visible</expectedCondition>
-      <additionalValue/>
-    <criteriaAttributes>
-    </criteriaAttributes>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>272</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>GetValues</name>
-    <type>GetTextStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <criteria>X-Path</criteria>
-      <value/>
-      <output>output</output>
-      <dropdown>N</dropdown>
-      <driverName>BROWSER1</driverName>
-      <getTextRow>        <field>          <criteria>X-Path</criteria>
-          <value>pXpathTitle</value>
-          <multiple>No</multiple>
-          <index/>
-          <dropDown>No</dropDown>
-          <outputField>pItem</outputField>
-    <criteriaAttributes>
-    </criteriaAttributes>
-        </field>        <field>          <criteria>X-Path</criteria>
-          <value>pXpathValue</value>
-          <multiple>No</multiple>
-          <index/>
-          <dropDown>No</dropDown>
-          <outputField>pValue</outputField>
-    <criteriaAttributes>
-    </criteriaAttributes>
-        </field>      </getTextRow>    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
+      <xloc>816</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -366,8 +314,8 @@
     </step>
 
   <step>
-    <name>WaitXPathValue</name>
-    <type>WaitUntil</type>
+    <name>GetValue</name>
+    <type>GetTextStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -377,14 +325,19 @@
       <schema_name/>
     </partitioning>
       <criteria>X-Path</criteria>
-      <value>pXpathValue</value>
+      <value/>
+      <output>output</output>
+      <dropdown>N</dropdown>
       <driverName>BROWSER1</driverName>
-      <delay>5000</delay>
-      <expectedCondition>Element visible</expectedCondition>
-      <additionalValue/>
+      <getTextRow>        <field>          <criteria>X-Path</criteria>
+          <value>pXpathValue</value>
+          <multiple>No</multiple>
+          <index/>
+          <dropDown>No</dropDown>
+          <outputField>pValue</outputField>
     <criteriaAttributes>
     </criteriaAttributes>
-    <cluster_schema/>
+        </field>      </getTextRow>    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -392,110 +345,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>576</xloc>
       <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Start Browser</name>
-    <type>BeginStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <browser>Google Chrome</browser>
-      <ignoreIeProtectedModeSettings>N</ignoreIeProtectedModeSettings>
-      <url>https&#x3a;&#x2f;&#x2f;www.google.com</url>
-      <delay>0</delay>
-      <maximize>Y</maximize>
-      <startNode>Y</startNode>
-      <notif>Y</notif>
-      <driverName>BROWSER1</driverName>
-      <pageLoadTime>10000</pageLoadTime>
-      <retryCount>0</retryCount>
-      <defaultDownloadDirectory/>
-      <clearBrowser>Y</clearBrowser>
-      <ieMode>N</ieMode>
-      <profile/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Block this step until steps finish</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <steps>
-      <step>
-        <name>Start Browser</name>
-        <CopyNr>0</CopyNr>
-        </step>
-      </steps>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Generate Rows</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -530,15 +381,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
+      <xloc>720</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>CopyRows</name>
-    <type>RowsToResult</type>
+    <name>Navigation</name>
+    <type>UrlNavigationStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -547,6 +398,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+      <url>pAddress</url>
+      <delay>20000</delay>
+      <driverName>BROWSER1</driverName>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -555,13 +409,267 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
+      <xloc>176</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
+  <step>
+    <name>WaitXPathTitle</name>
+    <type>WaitUntil</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>X-Path</criteria>
+      <value>pXpathTitle</value>
+      <driverName>BROWSER1</driverName>
+      <delay>10000</delay>
+      <expectedCondition>Element visible</expectedCondition>
+      <additionalValue/>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>WaitXPathValue</name>
+    <type>WaitUntil</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>X-Path</criteria>
+      <value>pXpathValue</value>
+      <driverName>BROWSER1</driverName>
+      <delay>10000</delay>
+      <expectedCondition>Element visible</expectedCondition>
+      <additionalValue/>
+    <criteriaAttributes>
+    </criteriaAttributes>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>MJSVValue</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var pValue &#x3d; &#x22;Not Price&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>pValue</name>
+        <rename>pValue</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>GetTitle</name>
+    <type>GetTextStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <criteria>X-Path</criteria>
+      <value/>
+      <output>output</output>
+      <dropdown>N</dropdown>
+      <driverName>BROWSER1</driverName>
+      <getTextRow>        <field>          <criteria>X-Path</criteria>
+          <value>pXpathTitle</value>
+          <multiple>No</multiple>
+          <index/>
+          <dropDown>No</dropDown>
+          <outputField>pItem</outputField>
+    <criteriaAttributes>
+    </criteriaAttributes>
+        </field>      </getTextRow>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>MJSVItem</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var pItem &#x3d; &#x22;Not Title&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>pItem</name>
+        <rename>pItem</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Modified Java Script Value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var pItem &#x3d; &#x22;URL Not Found&#x22;&#x3b;&#xd;&#xa;var pValue &#x3d; &#x22;URL Not Found&#x22;&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>pItem</name>
+        <rename>pItem</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>pValue</name>
+        <rename>pValue</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
   <step_error_handling>
+      <error>
+        <source_step>Navigation</source_step>
+        <target_step>Modified Java Script Value</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>WaitXPathTitle</source_step>
+        <target_step>MJSVItem</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>WaitXPathValue</source_step>
+        <target_step>MJSVValue</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
