@@ -9,9 +9,9 @@
     <created_user>dias.fulvio&#x40;gmail.com</created_user>
     <created_date>2023&#x2f;10&#x2f;19 22&#x3a;55&#x3a;35.376</created_date>
     <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
-    <modified_date>2023&#x2f;10&#x2f;19 23&#x3a;19&#x3a;56.710</modified_date>
-    <fileHash>c3317e0602934b07bcab96d3ff082573</fileHash>
-    <stepEntryHash>bf7a5245dbed85933077678b60a4d098</stepEntryHash>
+    <modified_date>2023&#x2f;10&#x2f;20 22&#x3a;55&#x3a;07.357</modified_date>
+    <fileHash>aa274b2722c6572659ee082d7459ab70</fileHash>
+    <stepEntryHash>e02ca8ccf58a7ddb337a297a6e4dea99</stepEntryHash>
 
     <directory>&#x2f;</directory>
     <parameters>
@@ -34,26 +34,26 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <order>
     <hop>
-      <from>Microsoft Excel Input</from>
-      <to>Stream lookup</to>
+      <from>Start</from>
+      <to>Workflow Executor</to>
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
     <hop>
-      <from>Microsoft Excel Input 2</from>
-      <to>Stream lookup</to>
+      <from>Workflow Executor</from>
+      <to>Mail</to>
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
   </order>
   <step>
-    <name>Microsoft Excel Input</name>
-    <type>ExcelInput</type>
+    <name>Start</name>
+    <type>StartWorkflow</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -62,101 +62,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <batchsize>0</batchsize>
-    <enablexlsbbatching>N</enablexlsbbatching>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;Inputs&#x2f;Lista_de_Materiais_de_Escritorio.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <filePassword/>
-    </file>
-    <column_name_based>N</column_name_based>
-    <fields>
-      <field>
-        <column_name/>
-        <name>Descri&#xe7;&#xe3;o</name>
-        <alias_names/>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <column_name/>
-        <name>Site</name>
-        <alias_names/>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <column_name/>
-        <name>Link do Item</name>
-        <alias_names/>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Planilha1</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-        </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>SAX_POI</spreadsheet_type>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -165,15 +70,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>80</yloc>
+      <xloc>32</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Microsoft Excel Input 2</name>
-    <type>ExcelInput</type>
+    <name>Workflow Executor</name>
+    <type>WorkflowExecutor</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -182,101 +87,45 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <batchsize>0</batchsize>
-    <enablexlsbbatching>N</enablexlsbbatching>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;Inputs&#x2f;Lista_de_Materiais_de_Escritorio.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <filePassword/>
-    </file>
-    <column_name_based>N</column_name_based>
-    <fields>
-      <field>
-        <column_name/>
-        <name>Site</name>
-        <alias_names/>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <column_name/>
-        <name>XPathTitle</name>
-        <alias_names/>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <column_name/>
-        <name>XPathValue</name>
-        <alias_names/>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Planilha2</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-        </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>SAX_POI</spreadsheet_type>
+    <specification_method>filename</specification_method>
+    <trans_object_id/>
+    <trans_name/>
+    <filename>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;WF_2_Input_Data.psw</filename>
+    <directory_path/>
+    <group_size>1</group_size>
+    <group_field/>
+    <group_time/>
+    <executeErrorPath>N</executeErrorPath>
+          <parameters>    <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    <execution_result_target_step/>
+    <execution_time_field>ExecutionTime</execution_time_field>
+    <execution_result_field>ExecutionResult</execution_result_field>
+    <execution_errors_field>ExecutionNrErrors</execution_errors_field>
+    <execution_lines_read_field>ExecutionLinesRead</execution_lines_read_field>
+    <execution_lines_written_field>ExecutionLinesWritten</execution_lines_written_field>
+    <execution_lines_input_field>ExecutionLinesInput</execution_lines_input_field>
+    <execution_lines_output_field>ExecutionLinesOutput</execution_lines_output_field>
+    <execution_lines_rejected_field>ExecutionLinesRejected</execution_lines_rejected_field>
+    <execution_lines_updated_field>ExecutionLinesUpdated</execution_lines_updated_field>
+    <execution_lines_deleted_field>ExecutionLinesDeleted</execution_lines_deleted_field>
+    <execution_files_retrieved_field>ExecutionFilesRetrieved</execution_files_retrieved_field>
+    <execution_exit_status_field>ExecutionExitStatus</execution_exit_status_field>
+    <execution_log_text_field>ExecutionLogText</execution_log_text_field>
+    <execution_log_channelid_field>ExecutionLogChannelId</execution_log_channelid_field>
+    <result_rows_target_step/>
+    <result_files_target_step/>
+    <result_files_file_name_field>FileName</result_files_file_name_field>
+    <executors_output_step/>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <set_append_logfile>N</set_append_logfile>
+      <create_parent_folder>N</create_parent_folder>
+      <sharedWorkflowID>0</sharedWorkflowID>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -285,15 +134,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>192</yloc>
+      <xloc>208</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
+    <name>Mail</name>
+    <type>Mail</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -302,30 +151,56 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Microsoft Excel Input 2</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <fetch_first_match>N</fetch_first_match>
-    <lookup>
-      <key>
-        <name>Site</name>
-        <field>Site</field>
-      </key>
-      <value>
-        <name>XPathTitle</name>
-        <rename>XPathTitle</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>XPathValue</name>
-        <rename>XPathValue</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
+            <connectiontimeout/>
+      <timeout/>
+      <writetimeout/>
+      <TLSv1_0>N</TLSv1_0>
+      <TLSv1_1>N</TLSv1_1>
+      <TLSv1_2>N</TLSv1_2>
+      <TLSv1_3>N</TLSv1_3>
+      <server>mail.s2milhas.com.br</server>
+      <port>587</port>
+      <destination>fulviocanducci&#x40;hotmail.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyToAddresses/>
+      <replyto>recoverymiles&#x40;s2milhas.com.br</replyto>
+      <replytoname>recoverymiles&#x40;s2milhas.com.br</replytoname>
+      <subject>Produtos - Pesquisa de Pre&#xe7;o</subject>
+      <include_date>Y</include_date>
+      <include_subfolders>N</include_subfolders>
+      <zipFilenameDynamic>N</zipFilenameDynamic>
+      <isFilenameDynamic>N</isFilenameDynamic>
+      <attachContentFromField>N</attachContentFromField>
+      <attachContentField> </attachContentField>
+      <attachContentFileNameField> </attachContentFileNameField>
+      <dynamicFieldname> </dynamicFieldname>
+      <dynamicWildcard> </dynamicWildcard>
+      <dynamicZipFilename/>
+      <sourcefilefoldername>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;File_Product.xlsx</sourcefilefoldername>
+      <sourcewildcard/>
+      <contact_person>Recovery</contact_person>
+      <contact_phone/>
+      <comment>Produtos - Pesquisa de Pre&#xe7;o</comment>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <zip_limit_size>0</zip_limit_size>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user>recoverymiles&#x40;s2milhas.com.br</auth_user>
+      <accept_text_var_value>Y</accept_text_var_value>
+      <auth_password>Encrypted 529ac1e78a59d7c3829e1bac67d5d18ffa</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>Y</use_HTML>
+      <use_Priority>Y</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>SSL</secureconnectiontype>
+      <embeddedimages>
+      </embeddedimages>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -334,8 +209,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>128</yloc>
+      <xloc>384</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
