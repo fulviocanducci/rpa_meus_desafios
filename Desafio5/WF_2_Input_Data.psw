@@ -9,9 +9,9 @@
     <created_user>dias.fulvio&#x40;gmail.com</created_user>
     <created_date>2023&#x2f;10&#x2f;19 18&#x3a;55&#x3a;45.041</created_date>
     <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
-    <modified_date>2023&#x2f;10&#x2f;20 21&#x3a;07&#x3a;13.434</modified_date>
-    <fileHash>05c41dcf848b06a8e192f17dfb8d5446</fileHash>
-    <stepEntryHash>91c8d6c6f6d06cec09b30247b4056ec2</stepEntryHash>
+    <modified_date>2023&#x2f;10&#x2f;20 23&#x3a;42&#x3a;40.722</modified_date>
+    <fileHash>5460df29d77cea8f020faf34f71b0d88</fileHash>
+    <stepEntryHash>c1b2851533a5979de8f02d94361289df</stepEntryHash>
 
     <directory>&#x2f;</directory>
     <parameters>
@@ -83,6 +83,18 @@
     <hop>
       <from>Rows</from>
       <to>Output</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Block</from>
+      <to>Mail</to>
+      <enabled>Y</enabled>
+      <visible>Y</visible>
+    </hop>
+    <hop>
+      <from>Generate Rows</from>
+      <to>Block</to>
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
@@ -760,6 +772,152 @@
     <GUI>
       <xloc>592</xloc>
       <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Mail</name>
+    <type>Mail</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+            <connectiontimeout/>
+      <timeout/>
+      <writetimeout/>
+      <TLSv1_0>Y</TLSv1_0>
+      <TLSv1_1>Y</TLSv1_1>
+      <TLSv1_2>Y</TLSv1_2>
+      <TLSv1_3>Y</TLSv1_3>
+      <server>mail.s2milhas.com.br</server>
+      <port>587</port>
+      <destination>fulviocanducci&#x40;hotmail.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyToAddresses/>
+      <replyto>recoverymiles&#x40;s2milhas.com.br</replyto>
+      <replytoname>recoverymiles&#x40;s2milhas.com.br</replytoname>
+      <subject>Produtos - Pesquisa de Pre&#xe7;o</subject>
+      <include_date>Y</include_date>
+      <include_subfolders>N</include_subfolders>
+      <zipFilenameDynamic>N</zipFilenameDynamic>
+      <isFilenameDynamic>N</isFilenameDynamic>
+      <attachContentFromField>N</attachContentFromField>
+      <attachContentField> </attachContentField>
+      <attachContentFileNameField> </attachContentFileNameField>
+      <dynamicFieldname> </dynamicFieldname>
+      <dynamicWildcard> </dynamicWildcard>
+      <dynamicZipFilename/>
+      <sourcefilefoldername>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;File_Product.xlsx</sourcefilefoldername>
+      <sourcewildcard/>
+      <contact_person/>
+      <contact_phone/>
+      <comment>Produtos - Pesquisa de Pre&#xe7;o</comment>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <zip_limit_size>0</zip_limit_size>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user>recoverymiles&#x40;s2milhas.com.br</auth_user>
+      <accept_text_var_value>Y</accept_text_var_value>
+      <auth_password>Encrypted 529ac1e78a59d7c3829e1bac67d5d18ffa</auth_password>
+      <only_comment>Y</only_comment>
+      <use_HTML>Y</use_HTML>
+      <use_Priority>Y</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>SSL</secureconnectiontype>
+      <embeddedimages>
+      </embeddedimages>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Block</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>WE</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      <step>
+        <name>Rows</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      <step>
+        <name>Output</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Generate Rows</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

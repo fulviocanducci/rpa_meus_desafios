@@ -9,9 +9,9 @@
     <created_user>dias.fulvio&#x40;gmail.com</created_user>
     <created_date>2023&#x2f;10&#x2f;19 22&#x3a;55&#x3a;35.376</created_date>
     <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
-    <modified_date>2023&#x2f;10&#x2f;20 22&#x3a;55&#x3a;07.357</modified_date>
-    <fileHash>aa274b2722c6572659ee082d7459ab70</fileHash>
-    <stepEntryHash>e02ca8ccf58a7ddb337a297a6e4dea99</stepEntryHash>
+    <modified_date>2023&#x2f;10&#x2f;20 23&#x3a;42&#x3a;27.414</modified_date>
+    <fileHash>b010ecbeea92e2b0c5f8d34e04f77825</fileHash>
+    <stepEntryHash>7f3c738c59ead250989238fd3f1cf708</stepEntryHash>
 
     <directory>&#x2f;</directory>
     <parameters>
@@ -46,7 +46,7 @@
     </hop>
     <hop>
       <from>Workflow Executor</from>
-      <to>Mail</to>
+      <to>Dummy &#x28;do nothing&#x29;</to>
       <enabled>Y</enabled>
       <visible>Y</visible>
     </hop>
@@ -116,7 +116,7 @@
     <result_rows_target_step/>
     <result_files_target_step/>
     <result_files_file_name_field>FileName</result_files_file_name_field>
-    <executors_output_step/>
+    <executors_output_step>Dummy &#x28;do nothing&#x29;</executors_output_step>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
@@ -134,15 +134,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>144</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Mail</name>
-    <type>Mail</type>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -151,56 +151,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-            <connectiontimeout/>
-      <timeout/>
-      <writetimeout/>
-      <TLSv1_0>N</TLSv1_0>
-      <TLSv1_1>N</TLSv1_1>
-      <TLSv1_2>N</TLSv1_2>
-      <TLSv1_3>N</TLSv1_3>
-      <server>mail.s2milhas.com.br</server>
-      <port>587</port>
-      <destination>fulviocanducci&#x40;hotmail.com</destination>
-      <destinationCc/>
-      <destinationBCc/>
-      <replyToAddresses/>
-      <replyto>recoverymiles&#x40;s2milhas.com.br</replyto>
-      <replytoname>recoverymiles&#x40;s2milhas.com.br</replytoname>
-      <subject>Produtos - Pesquisa de Pre&#xe7;o</subject>
-      <include_date>Y</include_date>
-      <include_subfolders>N</include_subfolders>
-      <zipFilenameDynamic>N</zipFilenameDynamic>
-      <isFilenameDynamic>N</isFilenameDynamic>
-      <attachContentFromField>N</attachContentFromField>
-      <attachContentField> </attachContentField>
-      <attachContentFileNameField> </attachContentFileNameField>
-      <dynamicFieldname> </dynamicFieldname>
-      <dynamicWildcard> </dynamicWildcard>
-      <dynamicZipFilename/>
-      <sourcefilefoldername>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;File_Product.xlsx</sourcefilefoldername>
-      <sourcewildcard/>
-      <contact_person>Recovery</contact_person>
-      <contact_phone/>
-      <comment>Produtos - Pesquisa de Pre&#xe7;o</comment>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name/>
-      <zip_limit_size>0</zip_limit_size>
-      <use_auth>Y</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user>recoverymiles&#x40;s2milhas.com.br</auth_user>
-      <accept_text_var_value>Y</accept_text_var_value>
-      <auth_password>Encrypted 529ac1e78a59d7c3829e1bac67d5d18ffa</auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>Y</use_HTML>
-      <use_Priority>Y</use_Priority>
-    <encoding>UTF-8</encoding>
-    <priority>normal</priority>
-    <importance>normal</importance>
-    <sensitivity>normal</sensitivity>
-    <secureconnectiontype>SSL</secureconnectiontype>
-      <embeddedimages>
-      </embeddedimages>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -209,7 +159,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>288</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
