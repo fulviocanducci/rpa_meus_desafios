@@ -9,12 +9,36 @@
     <created_user>dias.fulvio&#x40;gmail.com</created_user>
     <created_date>2023&#x2f;10&#x2f;19 18&#x3a;55&#x3a;45.041</created_date>
     <modified_user>dias.fulvio&#x40;gmail.com</modified_user>
-    <modified_date>2023&#x2f;10&#x2f;20 23&#x3a;58&#x3a;50.392</modified_date>
-    <fileHash>cbe4f08b9956324b01df926e15229878</fileHash>
-    <stepEntryHash>7d2a9ca539b91737f3e876b2a3322377</stepEntryHash>
+    <modified_date>2023&#x2f;10&#x2f;23 16&#x3a;55&#x3a;23.555</modified_date>
+    <fileHash>4ad3fd34950f63ae6d2757870e0a6442</fileHash>
+    <stepEntryHash>e66fb1f8b7e62f431253f3028a4cbe43</stepEntryHash>
 
     <directory>&#x2f;</directory>
     <parameters>
+      <parameter>
+        <name>W_In_Plan</name>
+        <description>Plan</description>
+        <type>String</type>
+        <uiControlType>TextBox</uiControlType>
+        <list_of_values/>
+        <valueSeparator/>
+        <default_value/>
+        <secret>N</secret>
+        <optional>N</optional>
+        <runtime>N</runtime>
+      </parameter>
+      <parameter>
+        <name>W_Out_Plan</name>
+        <description>Plan</description>
+        <type>String</type>
+        <uiControlType>TextBox</uiControlType>
+        <list_of_values/>
+        <valueSeparator/>
+        <default_value/>
+        <secret>N</secret>
+        <optional>N</optional>
+        <runtime>N</runtime>
+      </parameter>
     </parameters>
     <parameterConfiguration>
       <grouping>
@@ -116,13 +140,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <filePassword/>
-      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;Inputs&#x2f;Lista_de_Materiais_de_Escritorio.xlsx</name>
+      <name>&#x24;&#x7b;W_In_Plan&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -242,7 +260,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;Inputs&#x2f;Lista_de_Materiais_de_Escritorio.xlsx</name>
+      <name>&#x24;&#x7b;W_In_Plan&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -435,7 +453,7 @@
     <add_to_result_filenames>Y</add_to_result_filenames>
       <filePassword>Encrypted </filePassword>
     <file>
-      <name>&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x2f;File_Product</name>
+      <name>&#x24;&#x7b;W_Out_Plan&#x7d;&#x2f;File_Product</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
